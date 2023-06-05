@@ -23,3 +23,5 @@ jobs:
           git commit -m "update"
           git push origin $BRANCH_NAME:$BRANCH_NAME
           gh pr create --title "My Release $BRANCH_NAME"
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
