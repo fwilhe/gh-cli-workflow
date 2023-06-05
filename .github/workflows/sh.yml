@@ -16,7 +16,9 @@ jobs:
       run: |
           git config --global user.email "release_bot@example.com"
           git config --global user.name "Generic Release Bot"
+          BRANCH_NAME=br-`date +%s`
+          git switch --create $BRANCH_NAME
           date >> foo.txt
           git add foo.txt
           git commit -m "update"
-          git push
+          git push origin $BRANCH_NAME:$BRANCH_NAME
